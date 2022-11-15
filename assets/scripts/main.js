@@ -11,7 +11,7 @@ class Aside extends HTMLElement{
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
                 <!-- This will be shown everywhere-->
                 </div>
-                    <profile-info></profile-info>
+                    <profile-info class="profile-info"></profile-info>
                     <!-- Todo: implement -->
                     <div class="boards">
                         <div class="title">Boards<i class="bi bi-list"></i></div>
@@ -32,18 +32,16 @@ class Profile extends HTMLElement {
     connectedCallback(){
         this.innerHTML =
             `
-            <div class="profile">
                 <div id="settings"></div>
                     <i class="bi bi-pen"></i>
                 </div>
-                <div class="profile-pic">
-                    <img src="assets/images/blank-profile-pic.jpg" alt="profile-pic">
+                <div class="scale-profile-pic">
+                    <img src="assets/images/blank-profile-pic.jpg" class="profile-pic alt="profile-pic">
                 </div>
                 <div class="profile-info">
                     <p><b>Name</b></p>
                     <p><b>Department</b></p>
-                </div>
-            </div>`
+                </div>`
     }
 }
 
