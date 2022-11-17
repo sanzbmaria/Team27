@@ -51,7 +51,7 @@ class NewNotices extends HTMLElement {
     connectedCallback(){
         this.innerHTML =
             `<div class="title">Notice<i class="bi bi-bell-fill"></i></div>
-                <div class="list-group">
+                <div class="list-group" id="new-notices-list">
                     <notice-post></notice-post>
             </div>`
     }
@@ -63,7 +63,7 @@ class SavedNotices extends HTMLElement {
         this.innerHTML =
             `
                 <div class="title">Saved <i class="bi bi-star-fill"></i></div>
-                <div class="list-group">
+                <div class="list-group" id="saved-notices-list">
                     <notice-post></notice-post>
                     <notice-post></notice-post>
                 </div>`
@@ -75,11 +75,13 @@ class NoticePost extends HTMLElement {
         this.innerHTML =
             `<a href="#" class="list-group-item list-group-item-action" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">List group item heading</h5>
-                    <small>3 days ago</small>
+                    <div>
+                        <h5 class="mb-1 notice-post-title">Notice Title</h5>
+                        <sup class="notice-post-board"> Notice Board Name</sup>
+                    </div>
+                    <small class="notice-post-time">3 days ago</small>
                 </div>
-                <p class="mb-1">Some placeholder content in a paragraph.</p>
-                <small>And some small print.</small>
+                <p class="mb-1 class="notice-post-content"">Some placeholder content in a paragraph.</p>
             </a> `
     }
 }

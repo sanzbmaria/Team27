@@ -15,10 +15,6 @@
     overflow-wrap: break-word;
   }
 
-/* .aside > div {
-    background-color: lightgreen;
-  } */
-
 .profile {
     margin: 1rem 0 1rem 0;
     padding-top: 1rem;
@@ -36,7 +32,6 @@
   height: 80%;
   border-radius: 50%;
   overflow: hidden;
-  background-color: white;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -84,7 +79,7 @@
 /* Nav CSS */
 
 .navbar {
-    flex-wrap: wrap;
+    flex-wrap: wrap; /*when the content is too large or the screen is too small it will continue in the next line*/
     flex-grow: 4;
 
   }
@@ -93,7 +88,7 @@
 
 .main {
     flex-grow: 4;
-    background-color:lightblue;
+    background-color: lightblue;
   }
 
 
