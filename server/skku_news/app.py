@@ -8,6 +8,10 @@ app.secret_key = "skku_news"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=10)
 db = Database()
 
+@app.route("/")
+def index():
+    return redirect(url_for("login"))
+
 
 @app.route("/login", methods=("GET", "POST",))
 def login():
@@ -57,17 +61,21 @@ def register():
 @app.route("/main")
 def main():
     if "id" in session:
-        form = {}
-        form['id'] = session['id']
-        return render_template("main.html")
+        user = {
+            "name": session["name"],
+            "major": session["major"]
+        }
+        return render_template("index.html", user=user)
         
-    return redirect(url_for("login"))
+    return redirect(url_for(""))
 
 
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("login"))
+
+
 
 
 if __name__ == "__main__":

@@ -1,111 +1,107 @@
 .wrapper {
-    display: flex;
-    gap: 10px;
-  }
-
-.wrapper > div{
-    border-radius: 1%
+	display: flex;
+	gap: 10px;
 }
 
+.wrapper > div {
+	border-radius: 1%;
+}
 
 /* Aside CSS */
 .aside {
-    width: 20%;
-    height: 100vh;
-    overflow-wrap: break-word;
-  }
+	width: 20%;
+	height: 100vh;
+	overflow-wrap: break-word;
+}
 
 .profile {
-    margin: 1rem 0 1rem 0;
-    padding-top: 1rem;
+	margin: 1rem 0 1rem 0;
+	padding-top: 1rem;
 }
 
 #settings {
-  display: flex;
-  justify-content: right;
-  padding-right: 0.5rem;
-
+	display: flex;
+	justify-content: right;
+	padding-right: 0.5rem;
 }
 
-.profile-pic{
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
-  overflow: hidden;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-height: 200px;
-  max-width: 200px;
+.profile-pic {
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+	overflow: hidden;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-height: 200px;
+	max-width: 200px;
 }
 
 .profile-pic > img {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 
-  object-fit: cover;
+	object-fit: cover;
 }
 
-.profile-info{
-  text-align: center;
-  inline-size: min-content;
-  width: 100%;
-  font-size: 1em; /* 16px */
+.profile-info {
+	text-align: center;
+	inline-size: min-content;
+	width: 100%;
+	font-size: 1em; /* 16px */
 }
 
 /* boards and likes */
-.title{
-  margin: 1rem 0 1rem 0;
-  padding: 0.5rem;
-  font-size: 1em;
-  font-weight: 500;
-  text-align: left;
+.title {
+	margin: 1rem 0 1rem 0;
+	padding: 0.5rem;
+	font-size: 1em;
+	font-weight: 500;
+	text-align: left;
 }
 
 .title > i {
-  float: right;
-  padding-right: 0.5rem;
+	float: right;
+	padding-right: 0.5rem;
 }
 
-.boards{
-    height: auto;
+.boards {
+	height: auto;
 }
 
-.likes{
-    height: auto;
+.likes {
+	height: auto;
 }
 
 /* Main CSS (NAV, NOTICES AND SAVED)*/
 /* Nav CSS */
 
 .navbar {
-    flex-wrap: wrap; /*when the content is too large or the screen is too small it will continue in the next line*/
-    flex-grow: 4;
-
-  }
+	flex-wrap: wrap; /*when the content is too large or the screen is too small it will continue in the next line*/
+	flex-grow: 4;
+}
 
 /* Main */
 
 .main {
-    flex-grow: 4;
-    background-color: lightblue;
-  }
-
-
-.notices{
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap; /*when the screen is too small, then show in rows */
-  justify-content: space-around;
-  margin: 1rem 1rem 1rem 1rem;
+	flex-grow: 4;
+	background-color: lightblue;
 }
 
-.new-notices{
-  flex: 100 0 50%;
-  margin:inherit;
+.notices {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap; /*when the screen is too small, then show in rows */
+	justify-content: space-around;
+	margin: 1rem 1rem 1rem 1rem;
 }
 
-.saved-notices{
-  flex: 1 0.5 content; /*alone: occupy all space, with new-notices: shrink*/
-  margin:inherit;
+.new-notices {
+	flex: 60 0 50%;
+	margin: inherit;
+}
+
+.saved-notices {
+	flex: 40 60 content; /*alone: occupy all space, with new-notices: shrink*/
+	margin: inherit;
 }
