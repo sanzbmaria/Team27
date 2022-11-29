@@ -85,6 +85,7 @@
 
 .main {
 	flex-grow: 4;
+	background-color: lightblue;
 }
 
 .notices {
@@ -96,11 +97,11 @@
 }
 
 .new-notices {
-	flex: 100 0 50%;
+	flex: 60 0 50%;
 	margin: inherit;
 }
 
 .saved-notices {
-	flex: 1 0.5 content; /*alone: occupy all space, with new-notices: shrink*/
+	flex: 40 60 content; /*alone: occupy all space, with new-notices: shrink*/
 	margin: inherit;
 }
