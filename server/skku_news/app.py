@@ -2,18 +2,27 @@ from flask import Flask, render_template, session, url_for, redirect, request, j
 from datetime import timedelta
 from db_utils import Database
 
+
 app = Flask(__name__)
 app.secret_key = "skku_news"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=10)
 db = Database()
 
+
 @app.route("/login", methods=("GET", "POST",))
 def login():
     if request.method == "POST":
-        session["id"] = request.form["id"]
-        
-        return redirect(url_for("main"))
-    
+        login_result = db.login(request.form["id"], request.form["pwd"])
+
+        if login_result:
+            session["id"] = login_result[0]
+            session["name"] = login_result[1]
+            session["id"] = login_result[2]
+
+            flash(f"Welcome {login_result[1]}")
+            return redirect(url_for("main"))
+
+    flash("Please check your ID and PASSWROD!")
     return render_template("login.html")
 
 
@@ -51,10 +60,11 @@ def main():
     return redirect(url_for("login"))
 
 
-@app.route("/lgout")
+@app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("login"))
+
 
 if __name__ == "__main__":
     app.debug = True
