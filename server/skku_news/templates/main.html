@@ -42,12 +42,12 @@
             </div>
         </div>
       </div>
-    {{% for article in articles %}}
+    {% for article in articles %}
         {{ article.title }}
         {{ article.major }}
         {{ article.date }}
         {{ article.number }}
-    {{% endfor %}}
+    {% endfor %}
 	<script src="assets/scripts/main.js"></script>
     <!-- Custom Elements -->
     <script src="assets/scripts/html-elements.js"></script>

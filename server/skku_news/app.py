@@ -17,13 +17,16 @@ def login():
         if login_result:
             session["id"] = login_result[0]
             session["name"] = login_result[1]
-            session["id"] = login_result[2]
+            session["major"] = login_result[2]
 
             flash(f"Welcome {login_result[1]}")
             return redirect(url_for("main"))
 
-    flash("Please check your ID and PASSWROD!")
-    return render_template("login.html")
+        else:
+            flash("Please check your ID and PASSWORD!")
+            return render_template("login.html")
+    else:
+        return render_template("login.html")
 
 
 @app.route("/register", methods=("GET", "POST",))
@@ -47,8 +50,8 @@ def register():
         else:
             flash(f'Register failed! Please Check again!')
             return render_template("register.html")
-        
-    return render_template("register.html")
+    else:
+        return render_template("register.html")
 
 
 @app.route("/main")
@@ -56,6 +59,7 @@ def main():
     if "id" in session:
         form = {}
         form['id'] = session['id']
+        return render_template("main.html")
         
     return redirect(url_for("login"))
 
