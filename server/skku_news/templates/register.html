@@ -1,0 +1,39 @@
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <script>
+            alert("{{messages[-1]}}")
+        </script>
+    {% endif %}
+{% endwith %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKKU-NEWS</title>
+</head>
+<body>
+    <form action={{ url_for('register') }} method="POST">
+        ID:      <input type="text" id="id" name="id"><br>
+        Pasword: <input type="text" id="pwd" name="pwd"><br>
+        Name: <input type="text" id="name" name="name"><br>
+        Major: <select name="major">
+            <option value="none">===Select the major===</option>
+            <option value="bs">Biological Sciences</option>
+            <option value="phy">Physics</option>
+            <option value="ee">Electronic and Electrical Engineering</option>
+            <option value="mc">Material-Component Convergence Engineering</option>
+            <option value="cs">Department of Computer Science and Engineering</option>
+            <option value="sc">School of Convergence</option>
+            <option value="amse">Advanced Materials Science and Engineering</option>
+            <option value="arch">Architecture</option>
+            <option value="ib">Department of Integrative Biotechnology</option>
+            <option value="ss">Sport Science</option>
+            <option value="ss">Sport Science</option>
+            <option value="med">Medicine</option>
+            <option value="be">Biomedical Engineering</option>
+        </select><br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

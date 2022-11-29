@@ -38,8 +38,8 @@ class Database:
         return False
 
 
-    def register(self, id, pwd, name, major, submajor1, submajor2):
-        pass
+    def register(self, id, pwd, name, major):
+        return True
 
 
 if __name__=="__main__":
