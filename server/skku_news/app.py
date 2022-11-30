@@ -86,7 +86,7 @@ def main():
             })
         return render_template("index.html", user=user, notices=notices, saved_noitces=saved_noitces)
         
-    return redirect(url_for(""))
+    return redirect(url_for("/"))
 
 
 @app.route("/logout")
