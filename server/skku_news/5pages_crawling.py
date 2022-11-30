@@ -25,7 +25,6 @@ def main_crawling(page: bs):
 
         print(number)
         print(date)
-
         output = {
           "num":number,
           "title":title,
@@ -33,10 +32,20 @@ def main_crawling(page: bs):
           "link":link
           }
         json_str = json.dumps(output,ensure_ascii=False)
-    with open("physics.json","w",encoding="utf-8") as fp :
+    with open("datas.json","w",encoding="utf-8") as fp :
         fp.write(json_str)
 
 
 if __name__ == "__main__":
     page = get_object("https://skb.skku.edu/physics/notice/notice.do")
     main_crawling(page)
+    page = get_object("https://skb.skku.edu/biotech/community/total_notice.do")
+    main_crawling(page)
+    page = get_object("https://arch.skku.edu/arch/NEWS/notice.do")
+    main_crawling(page)
+    page = get_object("https://skb.skku.edu/mcce/notice.do")
+    main_crawling(page)
+    page = get_object("https://ice.skku.edu/ice/community/notice.do")
+    main_crawling(page)
+    
+
