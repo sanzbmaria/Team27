@@ -1,3 +1,4 @@
+import re
 from urllib.request import urlopen
 from bs4 import BeautifulSoup as bs
 
@@ -17,11 +18,11 @@ def main_crawling(page: bs):
         title_element['href']
 
         info_elements = article.select("dd > ul > li")
-        number = info_elements[0].string.strip()
+        number = re.sub(r'[^0-9]', '', info_elements[0].string.strip())
         date = info_elements[2].string.strip()
         results.append({
             "num": number,
-            "title": title,
+            "title": title.replace("'", "''"),
             "date": date,
             "link": link
         })
@@ -30,4 +31,3 @@ def main_crawling(page: bs):
 if __name__ == "__main__":
     page = get_object("https://www.skku.edu/skku/campus/skk_comm/notice01.do")
     main_crawling(page)
-    # INSERT INTO articles (major, num, title, date, link) VALUES ('main', 0, 'test', '2022-11-30', 'test')

@@ -3,7 +3,7 @@
 
 import psycopg2
 from config import DB
-from .parser import get_object, main_crawling
+from parser import get_object, main_crawling
 
 class Database:
     def __init__(self):
@@ -59,7 +59,7 @@ class Database:
     
 
     def get_articles(self, id):
-        article_query = "SELECT idx, title, major, date FROM articles WHERE major = main OR major = (SELECT major FROM users WHERE id = %s) ORDER BY idx DESC"
+        article_query = "SELECT idx, title, major, date FROM articles WHERE major = 'main' OR major = (SELECT major FROM users WHERE id = %s) ORDER BY date DESC"
         article_query_result = self.execute(article_query, (id,))
         return article_query_result
     
@@ -80,16 +80,49 @@ class Database:
         return True
     
 
-    def get_favorties(self, id):
+    def get_favorites(self, id):
         favor_query = "SELECT f.article_idx, a.title, a.major, a.date FROM favorites AS f LEFT JOIN articles AS a ON f.article_idx = a.idx WHERE f.user_id = %s"
         favors_query_result = self.execute(favor_query, (id,))
         return favors_query_result
     
 
-    def upload_crawling(self, articles):
-        pass
+    def upload_crawling(self, major, articles):
+        articles_query = 'SELECT major, num FROM articles'
+        article_list = set(self.execute(articles_query))
+
+        articles_insert_query = "INSERT INTO articles (major, num, title, date, link) VALUES "
+
+        for i in range(len(articles)):
+            if (major, articles[i]['num']) in article_list:
+                continue
+
+            articles_insert_query += f"('{major}', '{articles[i]['num']}', '{articles[i]['title']}', '{articles[i]['date']}', '{articles[i]['link']}')"
+            
+            if i != len(articles) - 1:
+                articles_insert_query += ", "
+        # print(articles_insert_query)
+        self.execute(articles_insert_query)
+        
+        return True
+    
+
+    def get_boards(self):
+        board_query = 'SELECT code, link FROM notice_boards'
+
+        boards = self.execute(board_query)
+        
+        for board in boards:
+            major, link = board
+            print(major, link)
+            page = get_object(link)
+            crawled_articles = main_crawling(page)
+
+            self.upload_crawling(major, crawled_articles)
+        
+
+
 
 
 if __name__=="__main__":
     db = Database()
-    # print(db.register("admin", "admin", "admin", "cs"))
+    db.get_boards()
