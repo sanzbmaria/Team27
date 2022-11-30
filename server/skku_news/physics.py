@@ -2,6 +2,7 @@ import json
 from urllib.request import urlopen
 from bs4 import BeautifulSoup as bs
 
+output = {}
 def get_object(link):
     html = urlopen(link)
     bs_object = bs(html, "html.parser")
@@ -24,18 +25,18 @@ def main_crawling(page: bs):
 
         print(number)
         print(date)
-        file = open("physics", "w")
+
         output = {
           "num":number,
           "title":title,
           "date":date,
           "link":link
           }
-        json.dump(output, file)
-        file.close()
+        json_str = json.dumps(output,ensure_ascii=False)
+    with open("physics.json","w",encoding="utf-8") as fp :
+        fp.write(json_str)
+
 
 if __name__ == "__main__":
     page = get_object("https://skb.skku.edu/physics/notice/notice.do")
     main_crawling(page)
-
-
