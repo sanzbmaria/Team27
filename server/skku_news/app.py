@@ -65,7 +65,26 @@ def main():
             "name": session["name"],
             "major": session["major"]
         }
-        return render_template("index.html", user=user)
+        notices = []
+
+        for noitce in db.get_articles(session['id']):
+            notices.append({
+                "idx": noitce[0],
+                "title": noitce[1],
+                "board": noitce[2],
+                "date": noitce[3]
+            })
+        
+        saved_noitces = []
+
+        for notice in db.get_favorites(session['id']):
+            saved_noitces.append({
+                "idx": notice[0],
+                "title": notice[1],
+                "board": notice[2],
+                "date": notice[3]
+            })
+        return render_template("index.html", user=user, notices=notices, saved_noitces=saved_noitces)
         
     return redirect(url_for(""))
 
