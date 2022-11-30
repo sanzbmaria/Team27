@@ -59,7 +59,7 @@ class Database:
     
 
     def get_articles(self, id):
-        article_query = "SELECT idx, title, major, date FROM articles WHERE major = 'main' OR major = (SELECT major FROM users WHERE id = %s) ORDER BY date DESC"
+        article_query = "SELECT a.idx, a.title, n.major, a.date FROM articles AS a LEFT JOIN notice_boards AS n ON a.major = n.code WHERE a.major = 'SKKU' OR a.major = (SELECT major FROM users WHERE id = %s) ORDER BY date DESC"
         article_query_result = self.execute(article_query, (id,))
         return article_query_result
     
