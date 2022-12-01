@@ -59,7 +59,7 @@ class Database:
     
 
     def get_articles(self, id):
-        article_query = "SELECT a.idx, a.title, n.major, a.date FROM articles AS a LEFT JOIN notice_boards AS n ON a.major = n.code WHERE a.major = 'SKKU' OR a.major = (SELECT major FROM users WHERE id = %s) ORDER BY date DESC"
+        article_query = "SELECT a.idx, a.title, n.major, a.date, n.link, a.link FROM articles AS a LEFT JOIN notice_boards AS n ON a.major = n.code WHERE a.major = 'SKKU' OR a.major = (SELECT major FROM users WHERE id = %s) ORDER BY date DESC"
         article_query_result = self.execute(article_query, (id,))
         return article_query_result
     
@@ -81,7 +81,7 @@ class Database:
     
 
     def get_favorites(self, id):
-        favor_query = "SELECT f.article_idx, a.title, a.major, a.date FROM favorites AS f LEFT JOIN articles AS a ON f.article_idx = a.idx WHERE f.user_id = %s"
+        favor_query = "SELECT f.article_idx, a.title, n.major, a.date, n.link, a.link FROM favorites AS f LEFT JOIN articles AS a ON f.article_idx = a.idx LEFT JOIN notice_boards as n ON a.major = n.code WHERE f.user_id = %s"
         favors_query_result = self.execute(favor_query, (id,))
         return favors_query_result
     

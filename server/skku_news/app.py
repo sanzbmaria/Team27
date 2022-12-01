@@ -67,12 +67,13 @@ def main():
         }
         notices = []
 
-        for noitce in db.get_articles(session['id']):
+        for notice in db.get_articles(session['id']):
             notices.append({
-                "idx": noitce[0],
-                "title": noitce[1],
-                "board": noitce[2],
-                "date": noitce[3]
+                "idx": notice[0],
+                "title": notice[1],
+                "board": notice[2],
+                "date": notice[3],
+                "link": notice[4]+notice[5]
             })
         
         saved_notices = []
@@ -82,7 +83,8 @@ def main():
                 "idx": notice[0],
                 "title": notice[1],
                 "board": notice[2],
-                "date": notice[3]
+                "date": notice[3],
+                "link": notice[4]+notice[5]
             })
         return render_template("index.html", user=user, notices=notices, saved_notices=saved_notices)
         

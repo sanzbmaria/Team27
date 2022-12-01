@@ -87,10 +87,10 @@
 						<div class="list-group" id="new-notices-list">
 							{%for notice in notices %}
 							<a
-								href="#"
+								href="{{notice.link}}"
 								class="list-group-item list-group-item-action mt-1"
 								aria-current="true"
-								data-bs-toggle="modal">
+								target="_blank">
 								<div class="d-flex w-100">
 									<div class="d-flex w-100 justify-content-between">
 										<div>
@@ -118,10 +118,10 @@
 						<div class="list-group" id="saved-notices-list">
 							{%for notice in saved_notices %}
 							<a
-								href="#"
+								href="{{notice.link}}"
 								class="list-group-item list-group-item-action"
 								aria-current="true"
-								data-bs-toggle="modal">
+								target="_blank">
 								<div class="d-flex w-100 justify-content-between">
 									<div>
 										<h5 class="mb-1 notice-post-title">{{notice.title}}</h5>
