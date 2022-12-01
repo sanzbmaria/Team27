@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": true,
+      "externalConsole": false,
+      "cwd": "/Users/mariasanz/Library/CloudStorage/GoogleDrive-sanzbmaria@gmail.com/My Drive/SKKU/2022_2_Fall/OpenSource/FinalProject/Team27",
+      "program": "/Users/mariasanz/Library/CloudStorage/GoogleDrive-sanzbmaria@gmail.com/My Drive/SKKU/2022_2_Fall/OpenSource/FinalProject/Team27/build/Debug/outDebug",
+      "MIMode": "gdb"
+    }
+  ]
+}
