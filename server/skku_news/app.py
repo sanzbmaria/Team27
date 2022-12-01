@@ -82,7 +82,8 @@ def main():
                 "title": notice[1],
                 "board": notice[2],
                 "date": notice[3],
-                "link": notice[4]+notice[5]
+                "link": notice[4]+notice[5],
+                "saved": notice[6]
             })
         
         saved_notices = []

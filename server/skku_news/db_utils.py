@@ -59,8 +59,11 @@ class Database:
     
 
     def get_articles(self, id):
-        article_query = "SELECT a.idx, a.title, n.major, a.date, n.link, a.link FROM articles AS a LEFT JOIN notice_boards AS n ON a.major = n.code WHERE a.major = 'SKKU' OR a.major = (SELECT major FROM users WHERE id = %s) ORDER BY date DESC"
-        article_query_result = self.execute(article_query, (id,))
+        article_query = "SELECT a.idx, a.title, n.major, a.date, n.link, a.link, f.user_id = %s FROM articles AS a \
+                        LEFT JOIN notice_boards AS n ON a.major = n.code \
+                        LEFT JOIN favorites as f ON f.user_id = %s AND article_idx = a.idx \
+                        WHERE a.major = 'SKKU' OR a.major = (SELECT major FROM users WHERE id = %s) ORDER BY date DESC"
+        article_query_result = self.execute(article_query, (id,id,id,))
         return article_query_result
     
 
@@ -119,6 +122,7 @@ class Database:
 
             self.upload_crawling(major, crawled_articles)
         
+
     def get_user_boards(self, id):
         board_query = "SELECT major, link FROM notice_boards WHERE code = 'SKKU' or code = (SELECT major FROM users WHERE id = %s)"
         boards = self.execute(board_query, (id, ))
