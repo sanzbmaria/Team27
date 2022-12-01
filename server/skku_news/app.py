@@ -104,7 +104,21 @@ def main():
 def set_favorite():
     if "id" in session:
         user_id = session["id"]
-        request.POST.
+        params = request.get_json()
+        article_idx = params["idx"]
+        result = db.set_favorites(user_id, article_idx)
+        if result:
+            return jsonify({
+                result: "add"
+            })
+        else:
+            return jsonify({
+                result: "delete"
+            })
+    else:
+        return jsonify({
+            result: "fail"
+        })
 
 
 @app.route("/logout")
