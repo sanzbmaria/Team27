@@ -68,7 +68,7 @@ def main():
 
         boards = []
 
-        for board in db.get_user_borads():
+        for board in db.get_user_boards():
             boards.append({
                 "major": board[0],
                 "link": board[1]
