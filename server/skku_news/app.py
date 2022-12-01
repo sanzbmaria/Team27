@@ -75,16 +75,16 @@ def main():
                 "date": noitce[3]
             })
         
-        saved_noitces = []
+        saved_notices = []
 
         for notice in db.get_favorites(session['id']):
-            saved_noitces.append({
+            saved_notices.append({
                 "idx": notice[0],
                 "title": notice[1],
                 "board": notice[2],
                 "date": notice[3]
             })
-        return render_template("index.html", user=user, notices=notices, saved_noitces=saved_noitces)
+        return render_template("index.html", user=user, notices=notices, saved_notices=saved_notices)
         
     return redirect(url_for("/"))
 
