@@ -105,3 +105,19 @@
 	flex: 40 60 content; /*alone: occupy all space, with new-notices: shrink*/
 	margin: inherit;
 }
+
+.favorite>span.favo{
+	display: inline-block;
+	vertical-align: top;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}
+.favo-default{
+	background: url(/static/images/favo.png) no-repeat center top;
+	background-size: 25px 25px;
+}
+.favo-hover{
+	background: url(/static/images/favo-hover.png) no-repeat center top;
+	background-size: 25px 25px;
+}
