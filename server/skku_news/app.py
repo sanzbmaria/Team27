@@ -65,6 +65,15 @@ def main():
             "name": session["name"],
             "major": session["major"]
         }
+
+        boards = []
+
+        for board in db.get_user_borads():
+            boards.append({
+                "major": board[0],
+                "link": board[1]
+            })
+
         notices = []
 
         for notice in db.get_articles(session['id']):
@@ -86,9 +95,16 @@ def main():
                 "date": notice[3],
                 "link": notice[4]+notice[5]
             })
-        return render_template("index.html", user=user, notices=notices, saved_notices=saved_notices)
-        
-    return redirect(url_for("/"))
+        return render_template("index.html", user=user, boards=boards, notices=notices, saved_notices=saved_notices)
+
+    return redirect(url_for("index"))
+
+
+@app.route("/set-favorite", method=("POST",))
+def set_favorite():
+    if "id" in session:
+        user_id = session["id"]
+        request.POST.
 
 
 @app.route("/logout")
