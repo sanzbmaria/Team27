@@ -140,7 +140,8 @@
 											<h5 style="visibility:hidden">{{notice.index}}</h5>
 											<h5 class="mb-1 s-post-title">{{notice.title}}</h5>
 											<sup class="notice-post-board">{{notice.board}}</sup>
-											<div class="favorite"><span class="favo favo-default"></span><span class="favotxt">like</span></div>
+										</a>
+																					<div class="favorite"><span class="favo favo-default"></span><span class="favotxt">like</span></div>
 											<div>
 												<script type="text/javascript" src="/static/styles/jquery-1.11.1.min.js"></script>
 												<script>
@@ -162,7 +163,6 @@
 													});
 												</script>
 												</div>
-										</a>
 										<small class="notice-post-time">{{notice.date}}</small>
 									</div>
 									{% if notice.saved %}
