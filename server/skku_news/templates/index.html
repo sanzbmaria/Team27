@@ -29,10 +29,13 @@
 				<!-- Title and Close button will only be shown on smaller screens -->
 				<button
 					type="button"
-					class="btn-close"
+					class="btn btn-dark"
+					onclick="window.location.href='{{ url_for( 'logout') }}';"
 					data-bs-dismiss="offcanvas"
-					data-bs-target="#offcanvasResponsive"
-					aria-label="Close"></button>
+					aria-label="Close">
+					<i class="bi bi-box-arrow-right"></i>
+				</button>
+
 				<!--USER PROFILE -->
 				<div id="user-profile">
 					<user-info class="profile-info">
@@ -50,11 +53,18 @@
 					<!-- Todo: implement -->
 					<div class="boards">
 						<div class="title">Boards<i class="bi bi-list"></i></div>
-						<div id="list-boards"></div>
-					</div>
-					<div class="likes">
-						<div class="title">Likes<i class="bi bi-list"></i></div>
-						<div id="list-likes"></div>
+						<div class="list-group">
+							{%for board in boards %}
+
+							<a
+								href="{{board.link}}"
+								target="_blank"
+								class="list-group-item list-group-item-action"
+								>{{board.major}}</a
+							>
+
+							{% endfor %}
+						</div>
 					</div>
 				</div>
 			</settings-aside>
@@ -63,15 +73,17 @@
 				<nav class="navbar bg-light">
 					<div class="container-fluid">
 						<!-- button to show aside on smaller screens (it wont be visible on larger ones) -->
-						<button
-							class="btn btn-outline-dark d-md-none"
-							type="button"
-							data-bs-toggle="offcanvas"
-							data-bs-target="#offcanvasResponsive"
-							aria-controls="offcanvasResponsive"
-							id="aside-button">
-							<i class="bi bi-sliders"></i>
-						</button>
+						<form action="/logout" method="post">
+							<button
+								class="btn btn-outline-dark d-md-none"
+								type="submit"
+								data-bs-toggle="offcanvas"
+								data-bs-target="#offcanvasResponsive"
+								aria-controls="offcanvasResponsive"
+								id="aside-button">
+								<i class="bi bi-sliders"></i>
+							</button>
+						</form>
 						<span class="navbar-brand mb-0 h1">SKKU NEWS FOR U</span>
 					</div>
 				</nav>
@@ -87,7 +99,7 @@
 						<div class="list-group" id="new-notices-list">
 							{%for notice in notices %}
 							<a
-								href={{notice.link}}
+								href="{{notice.link}}"
 								class="list-group-item list-group-item-action mt-1"
 								aria-current="true"
 								target="_blank">
