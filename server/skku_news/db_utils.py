@@ -120,7 +120,7 @@ class Database:
             self.upload_crawling(major, crawled_articles)
         
     def get_user_boards(self, id):
-        board_query = "SELECT major, link FROM notices_borads WHERE code = 'SKKU' or code = (SELECT major FROM users WHERE id = %s)"
+        board_query = "SELECT major, link FROM notice_boards WHERE code = 'SKKU' or code = (SELECT major FROM users WHERE id = %s)"
         boards = self.execute(board_query, (id, ))
         return boards
 
