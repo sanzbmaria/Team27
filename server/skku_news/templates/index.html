@@ -137,8 +137,31 @@
 											href="{{notice.link}}"
 											aria-current="true"
 											target="_blank">
-											<h5 class="mb-1 notice-post-title">{{notice.title}}</h5>
+											<h5 style="visibility:hidden">{{notice.index}}</h5>
+											<h5 class="mb-1 s-post-title">{{notice.title}}</h5>
 											<sup class="notice-post-board">{{notice.board}}</sup>
+											<div class="favorite"><span class="favo favo-default"></span><span class="favotxt">like</span></div>
+											<div>
+												<script type="text/javascript" src="/static/styles/jquery-1.11.1.min.js"></script>
+												<script>
+													$(function(){
+														$(".favo").on("click",function(){
+															var $this = $(this);
+															var txt = $(".favotxt");
+															var Icon = $(".favo");
+															if(txt.html() == "like" && Icon.hasClass("favo-default")){
+																txt.html("unlike");
+																Icon.removeClass("favo-default");
+																Icon.addClass("favo-hover");
+															}else if (txt.html() == "unlike" && Icon.hasClass("favo-hover")){
+																txt.text("like");
+																Icon.removeClass("favo-hover");
+																Icon.addClass("favo-default");
+														  };
+														});
+													});
+												</script>
+												</div>
 										</a>
 										<small class="notice-post-time">{{notice.date}}</small>
 									</div>
