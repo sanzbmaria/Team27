@@ -94,7 +94,8 @@ def main():
                 "title": notice[1],
                 "board": notice[2],
                 "date": notice[3],
-                "link": notice[4]+notice[5]
+                "link": notice[4]+notice[5],
+                "saved": True
             })
         return render_template("index.html", user=user, boards=boards, notices=notices, saved_notices=saved_notices)
 
@@ -105,21 +106,15 @@ def main():
 def set_favorite():
     if "id" in session:
         user_id = session["id"]
-        params = request.get_json()
-        article_idx = params["idx"]
+        article_idx = request.form["idx"]
         result = db.set_favorites(user_id, article_idx)
         if result:
-            return jsonify({
-                result: "add"
-            })
+            flash("Add the article to favorites succesfully.")
         else:
-            return jsonify({
-                result: "delete"
-            })
+            flash("Delete the article from favorites.")
     else:
-        return jsonify({
-            result: "fail"
-        })
+        flash("Fail to add article. Please try again.")
+    return redirect(request.referrer)
 
 
 @app.route("/logout")
