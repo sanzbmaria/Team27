@@ -1,3 +1,4 @@
+import re
 from urllib.request import urlopen
 from bs4 import BeautifulSoup as bs
 
@@ -9,6 +10,7 @@ def get_object(link):
 def main_crawling(page: bs):
     articles = page.select("dl.board-list-content-wrap")
 
+    results = []
     for article in articles:
         title_element = article.select_one("dt > a")
         title = title_element.string.strip()
@@ -16,13 +18,15 @@ def main_crawling(page: bs):
         title_element['href']
 
         info_elements = article.select("dd > ul > li")
-        number = info_elements[0].string.strip()
+        number = re.sub(r'[^0-9]', '', info_elements[0].string.strip())
         date = info_elements[2].string.strip()
-        print(title)
-        print(link)
-
-        print(number)
-        print(date)
+        results.append({
+            "num": number,
+            "title": title.replace("'", "''"),
+            "date": date,
+            "link": link
+        })
+    return results
 
 if __name__ == "__main__":
     page = get_object("https://www.skku.edu/skku/campus/skk_comm/notice01.do")
