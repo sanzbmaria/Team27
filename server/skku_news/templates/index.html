@@ -27,24 +27,15 @@
 				id="offcanvasResponsive"
 				aria-labelledby="offcanvasResponsiveLabel">
 				<!-- Title and Close button will only be shown on smaller screens -->
-				<h5 class="offcanvas-title" id="staticBackdropLabel">Preferences</h5>
 				<button
 					type="button"
 					class="btn-close"
 					data-bs-dismiss="offcanvas"
 					data-bs-target="#offcanvasResponsive"
 					aria-label="Close"></button>
+				<!--USER PROFILE -->
 				<div id="user-profile">
 					<user-info class="profile-info">
-						<div id="settings">
-							<button
-								type="button"
-								class="btn"
-								aria-label="Settings"
-								id="user-settings">
-								<i class="bi bi-pen"></i>
-							</button>
-						</div>
 						<div class="scale-profile-pic">
 							<img
 								src="/static/images/blank-profile-pic.jpg"
@@ -60,10 +51,6 @@
 					<div class="boards">
 						<div class="title">Boards<i class="bi bi-list"></i></div>
 						<div id="list-boards"></div>
-					</div>
-					<div class="likes">
-						<div class="title">Likes<i class="bi bi-list"></i></div>
-						<div id="list-likes"></div>
 					</div>
 					<div class="likes">
 						<div class="title">Likes<i class="bi bi-list"></i></div>
@@ -95,26 +82,37 @@
 				</div>
 				<!-- Notice Contents (Logged-in) -->
 				<div class="notices" id="content-notices">
-					<siv class="new-notices">
+					<div class="new-notices">
 						<div class="title">Notice<i class="bi bi-bell-fill"></i></div>
 						<div class="list-group" id="new-notices-list">
 							{%for notice in notices %}
 							<a
 								href="#"
-								class="list-group-item list-group-item-action"
+								class="list-group-item list-group-item-action mt-1"
 								aria-current="true"
 								data-bs-toggle="modal">
-								<div class="d-flex w-100 justify-content-between">
-									<div>
-										<h5 class="mb-1 notice-post-title">{{notice.title}}</h5>
-										<sup class="notice-post-board">{{notice.board}}</sup>
+								<div class="d-flex w-100">
+									<div class="d-flex w-100 justify-content-between">
+										<div>
+											<h5 class="mb-1 s-post-title">{{notice.title}}</h5>
+											<sup class="notice-post-board">{{notice.board}}</sup>
+										</div>
+										<small class="notice-post-time">{{notice.date}}</small>
 									</div>
-									<small class="notice-post-time">{{notice.date}}</small>
+									{% if notice.saved %}
+									<button type="button" class="btn btn-light px-2 my-2 mx-2">
+										<i class="bi bi-star-fill"></i>
+									</button>
+									{% else %}
+									<button type="button" class="btn btn-light px-2 my-2 mx-2">
+										<i class="bi bi-star"></i>
+									</button>
+									{% endif %}
 								</div>
 							</a>
 							{% endfor %}
 						</div>
-					</siv>
+					</div>
 					<div class="saved-notices">
 						<div class="title">Saved <i class="bi bi-star-fill"></i></div>
 						<div class="list-group" id="saved-notices-list">
