@@ -100,7 +100,7 @@ def main():
     return redirect(url_for("index"))
 
 
-@app.route("/set-favorite", method=("POST",))
+@app.route("/set-favorite", methods=("POST",))
 def set_favorite():
     if "id" in session:
         user_id = session["id"]
