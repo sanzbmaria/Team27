@@ -65,3 +65,6 @@ This project is signed under the MIT License, see ***LICENSE.md*** for details
 
 
 Thank you.
+
+## Others
+우수 프로젝트 시상 프로그램에 지원합니다
