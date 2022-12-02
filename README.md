@@ -85,7 +85,7 @@ Thank you.
 
 ## Others
 ### Video 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Jy11ZriB32Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://youtu.be/Jy11ZriB32Y
 
 ### 우수 프로젝트
 
