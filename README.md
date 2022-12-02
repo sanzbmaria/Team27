@@ -9,6 +9,23 @@ To stay up-to-date with the school news, there are multiple noticeboards that we
 
 ## How to Use?
 
+1. Change directory to install the requirements 
+```
+cd <Team27>/server
+pip install -r requirements.txt
+```
+
+2. Change directory to run the python script 
+```
+cd skku-news
+python app.py
+```
+
+3. In your browser's address bar write the following address: 
+```
+http://127.0.0.1:5000/
+```
+
 ## Features
 ### Register
 Register and select your major to see all the relevant notices. 
