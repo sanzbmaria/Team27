@@ -44,7 +44,7 @@ You can confortable view your dashboard on your phone or tablet.
 
 ## Copyright
 
-*This project is signed under the MIT License, see ***LICENSE.md*** for details
+This project is signed under the MIT License, see ***LICENSE.md*** for details
 
 
 Thank you.
