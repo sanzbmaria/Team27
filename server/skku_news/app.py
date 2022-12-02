@@ -1,5 +1,6 @@
 from flask import Flask, render_template, session, url_for, redirect, request, jsonify, flash
 from datetime import timedelta
+from apscheduler.schedulers.background import BackgroundScheduler
 from db_utils import Database
 
 
@@ -7,6 +8,9 @@ app = Flask(__name__)
 app.secret_key = "skku_news"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=10)
 db = Database()
+sched = BackgroundScheduler(daemon=True)
+sched.add_job(db.get_boards, 'cron', week='1-53', day_of_week='0-6', hour='14')
+sched.start()
 
 @app.route("/")
 def index():
