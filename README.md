@@ -20,7 +20,7 @@ To stay up-to-date with the school news, there are multiple noticeboards that we
 * Flask==2.22.2
 * Beatuifulsoup ==4.11.1
 * psycopg2==2.9.5
-
+* APScheduler==3.9.1.post1
 
 
 
