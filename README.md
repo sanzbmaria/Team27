@@ -84,4 +84,9 @@ This project is signed under the MIT License, see ***LICENSE.md*** for details
 Thank you.
 
 ## Others
+### Video 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Jy11ZriB32Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### 우수 프로젝트
+
 우수 프로젝트 시상 프로그램에 지원합니다
