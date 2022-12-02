@@ -9,5 +9,13 @@ To stay up-to-date with the school news, there are multiple noticeboards that we
 ## How to Use?
 
 ## Features
+### Register
+Register and select your major to see all the relevant notices. 
+![Screen Shot 2022-12-02 at 8 58 43 PM](https://user-images.githubusercontent.com/48880205/205287993-b7c936a2-bcc3-4cdf-a98f-d8c1e2dd9339.png)
+
+![Screen Shot 2022-12-02 at 8 58 43 PM](https://user-images.githubusercontent.com/48880205/205287993-b7c936a2-bcc3-4cdf-a98f-d8c1e2dd9339.png)
+### Login 
+Login to save your liked articles to view them wherever, wherever! 
+![Screen Shot 2022-12-02 at 8 57 22 PM](https://user-images.githubusercontent.com/48880205/205287774-ae129126-513c-4596-b063-a04e8459d351.png)
 
 ##
