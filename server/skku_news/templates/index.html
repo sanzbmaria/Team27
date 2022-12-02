@@ -17,6 +17,7 @@
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+		<script src="./../static/styles/jquery-1.11.1.min.js"></script>
 	</head>
 	<body>
 		<div class="wrapper container-fluid">
@@ -119,6 +120,9 @@
 										<i class="bi bi-star"></i>
 									</button>
 									{% endif %}
+									<button type="button" class="btn btn-light px-2 my-2 mx-2"  onclick="save({link: '{{notice.link}}', title: '{{notice.title}}',  board: '{{notice.board}}',  date: '{{notice.date}}', })" id="save">
+										<i  class="btn btn-light px-2 my-2 mx-2">like</i>
+									</button>
 								</div>
 							</div>
 							{% endfor %}
@@ -127,7 +131,7 @@
 					<div class="saved-notices">
 						<div class="title">Saved <i class="bi bi-star-fill"></i></div>
 						<div class="list-group" id="saved-notices-list">
-							{%for notice in saved_notices %}
+							<!-- {%for notice in saved_notices %}
 							<div class="list-group-item list-group-item-action">
 								<div class="d-flex w-100">
 									<div class="d-flex w-100 justify-content-between">
@@ -141,52 +145,89 @@
 											<h5 class="mb-1 s-post-title">{{notice.title}}</h5>
 											<sup class="notice-post-board">{{notice.board}}</sup>
 										</a>
-																					<div class="favorite"><span class="favo favo-default"></span><span class="favotxt">like</span></div>
-											<div>
-												<script type="text/javascript" src="/static/styles/jquery-1.11.1.min.js"></script>
-												<script>
-													$(function(){
-														$(".favo").on("click",function(){
-															var $this = $(this);
-															var txt = $(".favotxt");
-															var Icon = $(".favo");
-															if(txt.html() == "like" && Icon.hasClass("favo-default")){
-																txt.html("unlike");
-																Icon.removeClass("favo-default");
-																Icon.addClass("favo-hover");
-															}else if (txt.html() == "unlike" && Icon.hasClass("favo-hover")){
-																txt.text("like");
-																Icon.removeClass("favo-hover");
-																Icon.addClass("favo-default");
-														  };
-														});
-													});
-												</script>
-												</div>
 										<small class="notice-post-time">{{notice.date}}</small>
 									</div>
 									{% if notice.saved %}
-									<button type="button" class="btn btn-light px-2 my-2 mx-2">
+									<button type="button" class="btn btn-light px-2 my-2 mx-2" id="save">
 										<i class="bi bi-star-fill"></i>
 									</button>
+									</script>
 									{% else %}
 									<button type="button" class="btn btn-light px-2 my-2 mx-2">
 										<i class="bi bi-star"></i>
 									</button>
 									{% endif %}
+									<button type="button" class="btn btn-light px-2 my-2 mx-2" onclick="unsave" id="unsave">
+										<i   class="bi bi-star-fill">like</i>
+									</button>
+									<script>
+										function save(){
+											console.log('---')
+											saved-notices-lish.push({
+												href:"{{notice.link}}",
+											})
+						
+										}
+									</script>
 								</div>
 							</div>
-							{% endfor %}
+							{% endfor %} -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<script>
+			let list = [];
+
+			function loadData() {
+				return list.map((item, index) => `
+							<div class="list-group-item list-group-item-action">
+								<div class="d-flex w-100">
+									<div class="d-flex w-100 justify-content-between">
+										<a
+											role="button"
+											class="btn justify-content-start"
+											href="${item.link}"
+											aria-current="true"
+											target="_blank">
+											<h5 style="visibility:hidden">${item.index}</h5>
+											<h5 class="mb-1 s-post-title">${item.title}</h5>
+											<sup class="notice-post-board">${item.board}</sup>
+										</a>
+										<small class="notice-post-time">${item.date}</small>
+									</div>
+						
+									<button type="button" class="btn btn-light px-2 my-2 mx-2" id="save">
+										<i class="bi bi-star-fill"></i>
+									</button>
+									<button type="button" class="btn btn-light px-2 my-2 mx-2" onclick="unsave(${index})" id="unsave">
+										<i   class="bi bi-star-fill">like</i>
+									</button>
+								</div>
+							</div>
+				`).join('')
+			}
+
+			function save(value){
+				list.push(value);
+				const htmlData = loadData();
+				$('#saved-notices-list').html(htmlData);
+
+			}
+
+			function unsave(index) {
+				list.splice(index, 1);
+				const htmlData = loadData();
+				$('#saved-notices-list').html(htmlData);
+			}
+		</script>
 		<!-- Handles Login/register Logic -->
 		<!-- BOOTSTRAP JavaScript Bundle with Popper -->
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 			crossorigin="anonymous"></script>
+</script>
 	</body>
 </html>
