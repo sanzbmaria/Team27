@@ -75,6 +75,7 @@
 .navbar {
 	flex-wrap: wrap; /*when the content is too large or the screen is too small it will continue in the next line*/
 	flex-grow: 4;
+	background-color: #76b822;
 }
 
 /* Main */
