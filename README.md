@@ -6,6 +6,7 @@ To stay up-to-date with the school news, there are multiple noticeboards that we
 <p align="center">
   <img src="https://user-images.githubusercontent.com/48880205/205234166-d87de354-f2f9-493f-b97d-05533900e554.png" width="550" >
 </p>
+
 ## How to Use?
 
 ## Features
@@ -21,13 +22,13 @@ Login to save your liked articles to view them wherever, wherever!
   <img src="https://user-images.githubusercontent.com/48880205/205287774-ae129126-513c-4596-b063-a04e8459d351.png" width="550" >
 </p>
 
-## Relevant Boards and Saved Notices 
+### Relevant Boards and Saved Notices 
 The dashboard includes quick access links to the relevant notice-boards, it displays the most recient posts and you can save them in case you want to check them out later.
 <p align="center">
   <img src="https://user-images.githubusercontent.com/48880205/205288380-468353a4-a383-4e95-aaa4-b62689f85026.png" width="550" >
 </p>
 
-# Mobile View 
+### Mobile View 
 You can confortable view your dashboard on your phone or tablet. 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/48880205/205288961-1efa180c-769e-4e00-bd75-4b1d8fd44eed.png" width="350" ><img src="https://user-images.githubusercontent.com/48880205/205289159-160c09db-eee4-4dbf-9005-58fe5575bb98.png" width="350" >
