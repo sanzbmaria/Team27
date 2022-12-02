@@ -7,6 +7,23 @@ To stay up-to-date with the school news, there are multiple noticeboards that we
   <img src="https://user-images.githubusercontent.com/48880205/205234166-d87de354-f2f9-493f-b97d-05533900e554.png" width="550" >
 </p>
 
+## Dependency
+### Frontend
+* HTML5
+* CSS3
+* Javascript
+* Bootstrap==5.2.2
+* Jquery==1.11.1
+
+### Backend
+* Python==3.11.0 
+* Flask==2.22.2
+* Beatuifulsoup ==4.11.1
+* psycopg2==2.9.5
+
+
+
+
 ## How to Use?
 
 1. Change directory to install the requirements 
