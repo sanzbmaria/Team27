@@ -36,7 +36,7 @@ You can confortable view your dashboard on your phone or tablet.
 
 ## Version control
 
-*The project uses SemVer for version management. You can see the currently available versions in the repository.
+*The project uses SemVer for version management. You can see the currently available versions in the repository.*
 
 ## Author
 
