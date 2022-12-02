@@ -13,9 +13,17 @@ To stay up-to-date with the school news, there are multiple noticeboards that we
 Register and select your major to see all the relevant notices. 
 ![Screen Shot 2022-12-02 at 8 58 43 PM](https://user-images.githubusercontent.com/48880205/205287993-b7c936a2-bcc3-4cdf-a98f-d8c1e2dd9339.png)
 
-![Screen Shot 2022-12-02 at 8 58 43 PM](https://user-images.githubusercontent.com/48880205/205287993-b7c936a2-bcc3-4cdf-a98f-d8c1e2dd9339.png)
 ### Login 
 Login to save your liked articles to view them wherever, wherever! 
 ![Screen Shot 2022-12-02 at 8 57 22 PM](https://user-images.githubusercontent.com/48880205/205287774-ae129126-513c-4596-b063-a04e8459d351.png)
 
-##
+## Relevant Boards and Saved Notices 
+The dashboard includes quick access links to the relevant notice-boards, it displays the most recient posts and you can save them in case you want to check them out later.
+
+![Screen Shot 2022-12-02 at 9 01 01 PM](https://user-images.githubusercontent.com/48880205/205288380-468353a4-a383-4e95-aaa4-b62689f85026.png)
+
+# Mobile View 
+You can confortable view your dashboard on your phone or tablet. 
+![Screen Shot 2022-12-02 at 9 03 47 PM](https://user-images.githubusercontent.com/48880205/205288961-1efa180c-769e-4e00-bd75-4b1d8fd44eed.png)
+
+![Screen Shot 2022-12-02 at 9 05 05 PM](https://user-images.githubusercontent.com/48880205/205289159-160c09db-eee4-4dbf-9005-58fe5575bb98.png)
