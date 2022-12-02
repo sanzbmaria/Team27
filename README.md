@@ -24,6 +24,5 @@ The dashboard includes quick access links to the relevant notice-boards, it disp
 
 # Mobile View 
 You can confortable view your dashboard on your phone or tablet. 
-![Screen Shot 2022-12-02 at 9 03 47 PM](https://user-images.githubusercontent.com/48880205/205288961-1efa180c-769e-4e00-bd75-4b1d8fd44eed.png)
 
-![Screen Shot 2022-12-02 at 9 05 05 PM](https://user-images.githubusercontent.com/48880205/205289159-160c09db-eee4-4dbf-9005-58fe5575bb98.png)
+![Screen Shot 2022-12-02 at 9 03 47 PM](https://user-images.githubusercontent.com/48880205/205288961-1efa180c-769e-4e00-bd75-4b1d8fd44eed.png)![Screen Shot 2022-12-02 at 9 05 05 PM](https://user-images.githubusercontent.com/48880205/205289159-160c09db-eee4-4dbf-9005-58fe5575bb98.png)
